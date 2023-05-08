@@ -1,6 +1,7 @@
 NAME ?= dvwa
 APPLICATION_NAME ?= jzarris/dvwa
  
+ 
 build:
 	docker build --tag ${APPLICATION_NAME} .
 
