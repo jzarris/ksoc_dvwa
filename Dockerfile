@@ -4,7 +4,6 @@ LABEL maintainer "opsxcq@strm.sh"
 
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt install -y mysql-server mysql-client --fix-broken --fix-missing && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
     debconf-utils && \
     echo mariadb-server mysql-server/root_password password vulnerables | debconf-set-selections && \
