@@ -1,11 +1,15 @@
 NAME ?= dvwa
 APPLICATION_NAME ?= jzarris/dvwa
  
+ 
 build:
 	docker build --tag ${APPLICATION_NAME} .
 
 buildx:
 	docker buildx build --platform=linux/amd64 --load --tag ${APPLICATION_NAME} .
+
+buildxnocache:
+	docker buildx build --no-cache --platform=linux/amd64 --load --tag ${APPLICATION_NAME} .
 
 run:
 	docker run --name ${NAME} -d ${APPLICATION_NAME}
