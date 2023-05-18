@@ -1,0 +1,20 @@
+name: KSOC Check CI
+on:
+  pull_request:
+    branches:
+    - 'master'
+jobs:
+  ksoc-guard:
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: KSOC Guard
+        uses: ksoclabs/guard-action@v0.0.9
+        with:
+          fail_on_severity: none
+          ksoc_account_id: 2KW0CKZCYADZH5AL7TuFyoaIlvh
+          ksoc_access_key_id: ${{ secrets.KSOC_ACCESS_KEY_ID }}
+          ksoc_secret_key: ${{ secrets.KSOC_SECRET_KEY }}
