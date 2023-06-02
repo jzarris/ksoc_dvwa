@@ -24,4 +24,3 @@ spec:
         - containerPort: 80
         securityContext:
           privileged: true
-          allowPrivilegeEscalation: true
