@@ -1,26 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dvwa-app
+  name: dvwa-app-r
   namespace: dvwa
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: dvwa-app
+      app: dvwa-app-r
       tier: frontend
   template:
     metadata:
       labels:
-        app: dvwa-app
+        app: dvwa-app-r
         tier: frontend
     spec:
       serviceAccountName: dvwasa
-      automountServiceAccountToken: true
+      #automountServiceAccountToken: true
+      automountServiceAccountToken: false
       containers:
       - name: dvwa-app
         image: jzarris/dvwa
         ports:
         - containerPort: 80
         securityContext:
-          privileged: true
+          #privileged: true
+          privileged: false
